@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT Nusantara Prima — Solusi Bisnis Profesional</title>
+<meta name="description" content="PT Nusantara Prima adalah perusahaan konsultan bisnis terpercaya dengan pengalaman lebih dari 15 tahun di Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:        #1a56db;
+    --blue-dark:   #1e3a8a;
+    --blue-light:  #dbeafe;
+    --blue-mid:    #2563eb;
+    --accent:      #f59e0b;
+    --white:       #ffffff;
+    --gray-50:     #f8fafc;
+    --gray-100:    #f1f5f9;
+    --gray-200:    #e2e8f0;
+    --gray-400:    #94a3b8;
+    --gray-600:    #475569;
+    --gray-800:    #1e293b;
+    --gray-900:    #0f172a;
+    --font:        'Plus Jakarta Sans', sans-serif;
+    --shadow-sm:   0 1px 3px rgba(0,0,0,.08);
+    --shadow-md:   0 4px 16px rgba(0,0,0,.10);
+    --shadow-lg:   0 12px 40px rgba(0,0,0,.14);
+    --radius:      14px;
+    --transition:  .3s cubic-bezier(.4,0,.2,1);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--gray-800); background: var(--white); overflow-x: hidden; }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--gray-100); }
+  ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 99px; }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 72px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+  }
+  nav.scrolled { border-bottom-color: var(--gray-200); box-shadow: var(--shadow-sm); }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--gray-900);
+  }
+  .nav-logo-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -1px;
+  }
+  .nav-logo-text { font-size: .95rem; font-weight: 700; line-height: 1.2; }
+  .nav-logo-text span { display: block; font-size: .7rem; font-weight: 400; color: var(--gray-600); }
+
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--gray-600); font-size: .9rem;
+    font-weight: 500; transition: var(--transition); position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; left: 0; bottom: -3px;
+    width: 0; height: 2px; background: var(--blue);
+    border-radius: 99px; transition: var(--transition);
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--blue); color: #fff !important;
+    padding: .55rem 1.3rem; border-radius: 99px;
+    font-weight: 600 !important; transition: var(--transition) !important;
+    box-shadow: 0 4px 14px rgba(26,86,219,.3);
+  }
+  .nav-cta:hover { background: var(--blue-dark) !important; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; border: none; background: none; padding: 4px;
+  }
+  .nav-hamburger span {
+    width: 24px; height: 2px; background: var(--gray-800);
+    border-radius: 99px; transition: var(--transition);
+    display: block;
+  }
+  .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 72px; left: 0; right: 0;
+    background: #fff; border-bottom: 1px solid var(--gray-200);
+    padding: 1.5rem 5%; z-index: 999;
+    flex-direction: column; gap: 1rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    text-decoration: none; color: var(--gray-700); font-weight: 500;
+    padding: .6rem 0; border-bottom: 1px solid var(--gray-100);
+  }
+  .mobile-menu .nav-cta-m {
+    margin-top: .5rem;
+    display: inline-block; background: var(--blue); color: #fff;
+    padding: .7rem 1.5rem; border-radius: 99px; text-align: center;
+    font-weight: 600; border: none;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1a56db 100%);
+    display: flex; align-items: center;
+    padding: 0 5%; position: relative; overflow: hidden;
+  }
+
+  /* animated blobs */
+  .hero-blob {
+    position: absolute; border-radius: 50%;
+    opacity: .12; animation: blobFloat 8s ease-in-out infinite;
+  }
+  .hero-blob-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(#60a5fa, transparent);
+    top: -100px; right: -100px; animation-delay: 0s;
+  }
+  .hero-blob-2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(#f59e0b, transparent);
+    bottom: 50px; left: -80px; animation-delay: -4s;
+  }
+  .hero-blob-3 {
+    width: 200px; height: 200px;
+    background: radial-gradient(#a78bfa, transparent);
+    top: 40%; left: 35%; animation-delay: -2s;
+  }
+
+  @keyframes blobFloat {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(30px,-20px) scale(1.05); }
+    66% { transform: translate(-20px,30px) scale(0.95); }
+  }
+
+  /* grid dots */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;
+    padding-top: 72px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+    color: #93c5fd; padding: .4rem 1rem; border-radius: 99px;
+    font-size: .8rem; font-weight: 600; letter-spacing: .5px;
+    margin-bottom: 1.5rem; backdrop-filter: blur(8px);
+    animation: fadeInUp .6s ease both;
+  }
+  .hero-badge-dot {
+    width: 6px; height: 6px; background: var(--accent);
+    border-radius: 50%; animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.5)} }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 800; color: #fff; line-height: 1.15;
+    margin-bottom: 1.25rem;
+    animation: fadeInUp .7s ease .1s both;
+  }
+  .hero-title .highlight {
+    background: linear-gradient(90deg, #60a5fa, #f59e0b);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    color: #93c5fd; font-size: 1.05rem; line-height: 1.75;
+    margin-bottom: 2rem;
+    animation: fadeInUp .7s ease .2s both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeInUp .7s ease .3s both;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--accent); color: var(--gray-900);
+    padding: .85rem 2rem; border-radius: 99px;
+    font-weight: 700; font-size: .95rem;
+    text-decoration: none; transition: var(--transition);
+    box-shadow: 0 8px 24px rgba(245,158,11,.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(245,158,11,.45); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: .5rem;
+    border: 1.5px solid rgba(255,255,255,.4); color: #fff;
+    padding: .85rem 2rem; border-radius: 99px;
+    font-weight: 600; font-size: .95rem;
+    text-decoration: none; transition: var(--transition);
+    backdrop-filter: blur(8px);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
+
+  .hero-right { animation: fadeInRight .8s ease .2s both; }
+
+  /* card mockup */
+  .hero-card {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 24px; padding: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 24px 80px rgba(0,0,0,.3);
+  }
+  .hero-card-header {
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
+  }
+  .hc-avatar {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent), #f97316);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+  }
+  .hc-name { font-weight: 700; color: #fff; font-size: 1rem; }
+  .hc-role { color: #93c5fd; font-size: .8rem; margin-top: 2px; }
+
+  .stats-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .stat-card {
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 14px; padding: 1.2rem 1rem;
+    text-align: center;
+    transition: var(--transition);
+  }
+  .stat-card:hover { background: rgba(255,255,255,.1); }
+  .stat-num { font-size: 1.8rem; font-weight: 800; color: #fff; line-height: 1; }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: .72rem; color: #93c5fd; margin-top: .3rem; font-weight: 500; }
+
+  .hero-trust {
+    margin-top: 1.5rem;
+    display: flex; align-items: center; gap: .75rem;
+    padding: 1rem; background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1); border-radius: 12px;
+  }
+  .trust-avatars { display: flex; }
+  .trust-avatars span {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; margin-left: -8px; background: var(--blue-mid);
+    color: #fff; font-weight: 700;
+  }
+  .trust-avatars span:first-child { margin-left: 0; }
+  .trust-text { font-size: .8rem; color: #93c5fd; line-height: 1.4; }
+  .trust-text b { color: #fff; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(24px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* scroll indicator */
+  .scroll-hint {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: .5rem;
+    color: rgba(255,255,255,.4); font-size: .7rem; letter-spacing: 1px;
+    animation: fadeInUp 1s ease 1s both;
+  }
+  .scroll-hint-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%,100% { transform: scaleY(1); opacity: .4; }
+    50% { transform: scaleY(.5); opacity: .8; }
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 100px 5%; }
+
+  .section-tag {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: var(--blue-light); color: var(--blue);
+    padding: .35rem .9rem; border-radius: 99px;
+    font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+    text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800; color: var(--gray-900); line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-desc { color: var(--gray-600); font-size: 1rem; line-height: 1.75; max-width: 560px; }
+  .section-header { margin-bottom: 3.5rem; }
+
+  /* ─── CLIENTS TICKER ─── */
+  .clients {
+    padding: 40px 0; background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    overflow: hidden;
+  }
+  .clients-label {
+    text-align: center; font-size: .8rem; font-weight: 600;
+    color: var(--gray-400); letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .ticker-wrap { overflow: hidden; }
+  .ticker {
+    display: flex; gap: 3rem; width: max-content;
+    animation: ticker 20s linear infinite;
+  }
+  .ticker-item {
+    white-space: nowrap; font-size: 1rem; font-weight: 700;
+    color: var(--gray-400); letter-spacing: .5px;
+    display: flex; align-items: center; gap: .75rem;
+    transition: var(--transition);
+  }
+  .ticker-item:hover { color: var(--blue); }
+  .ticker-dot { width: 5px; height: 5px; background: var(--gray-300); border-radius: 50%; }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ─── ABOUT ─── */
+  .about { background: var(--white); }
+  .about-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+
+  .about-visual { position: relative; }
+  .about-img-wrap {
+    border-radius: 24px; overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--blue-light), #eff6ff);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .about-img-placeholder {
+    font-size: 5rem; opacity: .25;
+  }
+  .about-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(26,86,219,.15), transparent);
+  }
+
+  /* floating badge */
+  .about-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--white); border-radius: 16px; padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-lg);
+    display: flex; align-items: center; gap: .75rem;
+    border: 1px solid var(--gray-200);
+  }
+  .about-badge-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .about-badge-num { font-size: 1.4rem; font-weight: 800; color: var(--gray-900); }
+  .about-badge-txt { font-size: .72rem; color: var(--gray-600); font-weight: 500; }
+
+  /* exp badge top-left */
+  .about-exp {
+    position: absolute; top: -16px; left: -16px;
+    background: var(--accent); border-radius: 14px; padding: .8rem 1rem;
+    box-shadow: 0 8px 24px rgba(245,158,11,.3);
+    text-align: center;
+  }
+  .about-exp-num { font-size: 1.6rem; font-weight: 800; color: var(--gray-900); line-height: 1; }
+  .about-exp-txt { font-size: .7rem; font-weight: 700; color: var(--gray-800); text-transform: uppercase; letter-spacing: .5px; }
+
+  /* about content */
+  .about-content {}
+  .about-text {
+    color: var(--gray-600); line-height: 1.8; margin-bottom: 1.5rem; font-size: .97rem;
+  }
+
+  .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .vm-card {
+    background: var(--gray-50); border: 1px solid var(--gray-200);
+    border-radius: 16px; padding: 1.25rem;
+    transition: var(--transition);
+  }
+  .vm-card:hover { border-color: var(--blue); background: var(--blue-light); }
+  .vm-icon { font-size: 1.6rem; margin-bottom: .6rem; }
+  .vm-title { font-weight: 700; color: var(--gray-900); font-size: .9rem; margin-bottom: .4rem; }
+  .vm-text { font-size: .82rem; color: var(--gray-600); line-height: 1.6; }
+
+  /* value list */
+  .value-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+  .value-list li {
+    display: flex; align-items: flex-start; gap: .75rem;
+    font-size: .92rem; color: var(--gray-700);
+  }
+  .value-check {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--blue-light); color: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ─── SERVICES ─── */
+  .services { background: var(--gray-50); }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: 20px; padding: 2rem;
+    transition: var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-mid));
+    transform: scaleX(0); transform-origin: left;
+    transition: var(--transition);
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--blue-light); color: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 1.25rem;
+    transition: var(--transition);
+  }
+  .service-card:hover .service-icon { background: var(--blue); filter: drop-shadow(0 0 8px rgba(26,86,219,.3)); }
+  .service-card:hover .service-icon { color: #fff; }
+  .service-title { font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: .5rem; }
+  .service-desc { font-size: .87rem; color: var(--gray-600); line-height: 1.65; }
+
+  /* ─── TEAM ─── */
+  .team { background: var(--white); }
+  .team-inner { max-width: 1200px; margin: 0 auto; }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .team-card {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: 20px; padding: 2rem 1.5rem; text-align: center;
+    transition: var(--transition);
+  }
+  .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
+  .team-avatar {
+    width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1rem;
+    background: linear-gradient(135deg, var(--blue-light), #eff6ff);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--blue-light);
+  }
+  .team-name { font-weight: 700; color: var(--gray-900); margin-bottom: .2rem; }
+  .team-role { font-size: .82rem; color: var(--blue); font-weight: 600; margin-bottom: .75rem; }
+  .team-desc { font-size: .8rem; color: var(--gray-500); line-height: 1.55; }
+
+  /* ─── CTA BANNER ─── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+    padding: 80px 5%; position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .cta-inner {
+    max-width: 800px; margin: 0 auto; text-align: center;
+    position: relative; z-index: 1;
+  }
+  .cta-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+  .cta-desc { color: #93c5fd; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: .6rem;
+    background: #25d366; color: #fff;
+    padding: .9rem 2rem; border-radius: 99px;
+    font-weight: 700; text-decoration: none; font-size: .95rem;
+    transition: var(--transition);
+    box-shadow: 0 8px 24px rgba(37,211,102,.35);
+  }
+  .btn-wa:hover { background: #22c55e; transform: translateY(-2px); }
+  .btn-email {
+    display: inline-flex; align-items: center; gap: .6rem;
+    border: 1.5px solid rgba(255,255,255,.4); color: #fff;
+    padding: .9rem 2rem; border-radius: 99px;
+    font-weight: 600; text-decoration: none; font-size: .95rem;
+    transition: var(--transition);
+  }
+  .btn-email:hover { background: rgba(255,255,255,.1); }
+
+  /* ─── CONTACT ─── */
+  .contact { background: var(--gray-50); }
+  .contact-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+  }
+  .contact-info {}
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.25rem 0; border-bottom: 1px solid var(--gray-200);
+  }
+  .contact-item:last-child { border-bottom: none; }
+  .ci-icon {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: var(--blue-light); color: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .ci-label { font-size: .75rem; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: .8px; margin-bottom: .2rem; }
+  .ci-value { font-size: .93rem; color: var(--gray-800); font-weight: 500; }
+
+  .contact-form {
+    background: var(--white); border-radius: 24px; padding: 2.5rem;
+    box-shadow: var(--shadow-md); border: 1px solid var(--gray-200);
+  }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-label { display: block; font-size: .82rem; font-weight: 600; color: var(--gray-700); margin-bottom: .4rem; }
+  .form-input, .form-textarea {
+    width: 100%; padding: .75rem 1rem;
+    border: 1.5px solid var(--gray-200); border-radius: 10px;
+    font-family: var(--font); font-size: .9rem; color: var(--gray-800);
+    transition: var(--transition); background: var(--gray-50);
+    outline: none; resize: vertical;
+  }
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--blue); background: #fff;
+    box-shadow: 0 0 0 3px rgba(26,86,219,.1);
+  }
+  .form-textarea { min-height: 120px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .btn-submit {
+    width: 100%; padding: .9rem;
+    background: var(--blue); color: #fff;
+    border: none; border-radius: 10px; cursor: pointer;
+    font-family: var(--font); font-size: .95rem; font-weight: 700;
+    transition: var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+  }
+  .btn-submit:hover { background: var(--blue-dark); transform: translateY(-1px); }
+  .btn-submit.sent { background: #22c55e; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--gray-900); color: var(--gray-400);
+    padding: 60px 5% 30px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .footer-brand {}
+  .footer-logo {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;
+    text-decoration: none;
+  }
+  .footer-logo-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 800; color: #fff;
+  }
+  .footer-logo-text { font-weight: 700; color: #fff; font-size: .95rem; }
+  .footer-tagline { font-size: .85rem; line-height: 1.7; color: var(--gray-400); max-width: 240px; }
+  .footer-socials { display: flex; gap: .6rem; margin-top: 1.25rem; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 9px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gray-400); font-size: .9rem; text-decoration: none;
+    transition: var(--transition);
+  }
+  .social-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+  .footer-col-title { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 1rem; letter-spacing: .3px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+  .footer-links a { color: var(--gray-400); text-decoration: none; font-size: .85rem; transition: var(--transition); }
+  .footer-links a:hover { color: #93c5fd; }
+
+  .footer-bottom {
+    padding-top: 1.75rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { font-size: .8rem; }
+  .footer-credit { font-size: .75rem; }
+  .footer-credit a { color: var(--accent); text-decoration: none; }
+  .footer-credit a:hover { text-decoration: underline; }
+
+  /* ─── REVEAL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal-left.visible { opacity: 1; transform: none; }
+  .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal-right.visible { opacity: 1; transform: none; }
+
+  /* ─── COUNTER ─── */
+  .counter-section {
+    background: var(--blue-dark); padding: 60px 5%;
+  }
+  .counter-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+    text-align: center;
+  }
+  .counter-item {}
+  .counter-num {
+    font-size: 2.8rem; font-weight: 800; color: #fff;
+    line-height: 1; display: block;
+  }
+  .counter-num .cunit { color: var(--accent); }
+  .counter-label { font-size: .82rem; color: #93c5fd; margin-top: .4rem; font-weight: 500; }
+
+  /* ─── BACK TO TOP ─── */
+  .back-top {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+    width: 44px; height: 44px; border-radius: 12px;
+    background: var(--blue); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    border: none; cursor: pointer; font-size: 1.1rem;
+    box-shadow: 0 4px 16px rgba(26,86,219,.4);
+    transition: var(--transition); opacity: 0; pointer-events: none;
+    text-decoration: none;
+  }
+  .back-top.show { opacity: 1; pointer-events: auto; }
+  .back-top:hover { background: var(--blue-dark); transform: translateY(-2px); }
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width:900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-right { display: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .about-visual { display: none; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .counter-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media(max-width:480px) {
+    section { padding: 70px 5%; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .counter-inner { grid-template-columns: 1fr 1fr; }
+    .cta-actions { flex-direction: column; align-items: center; }
+  }
+
+  /* toast */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--gray-900); color: #fff;
+    padding: .8rem 1.5rem; border-radius: 99px;
+    font-size: .85rem; font-weight: 500;
+    opacity: 0; transition: all .3s ease; pointer-events: none; z-index: 9999;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">NP</div>
+    <div class="nav-logo-text">Nusantara Prima<span>Solusi Bisnis Profesional</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#services">Layanan</a></li>
+    <li><a href="#team">Tim</a></li>
+    <li><a href="#contact">Kontak</a></li>
+    <li><a href="https://wa.me/6287825019502" class="nav-cta" target="_blank">Hubungi Kami</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMobileMenu()">Tentang Kami</a>
+  <a href="#services" onclick="closeMobileMenu()">Layanan</a>
+  <a href="#team" onclick="closeMobileMenu()">Tim Kami</a>
+  <a href="#contact" onclick="closeMobileMenu()">Kontak</a>
+  <a href="https://wa.me/6287825019502" class="nav-cta-m" target="_blank">💬 Hubungi Kami</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Terpercaya Sejak 2009
+      </div>
+      <h1 class="hero-title">
+        Solusi Bisnis<br>
+        <span class="highlight">Profesional & Inovatif</span><br>
+        untuk Indonesia
+      </h1>
+      <p class="hero-desc">
+        PT Nusantara Prima hadir untuk membantu bisnis Anda tumbuh dengan strategi tepat, tim berpengalaman, dan komitmen penuh terhadap hasil terbaik.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Mulai Konsultasi ✦</a>
+        <a href="#about" class="btn-outline">Pelajari Lebih</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hc-avatar">🏢</div>
+          <div>
+            <div class="hc-name">PT Nusantara Prima</div>
+            <div class="hc-role">Jakarta, Indonesia · Est. 2009</div>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num">500<span>+</span></div>
+            <div class="stat-label">Klien Puas</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">15<span>+</span></div>
+            <div class="stat-label">Tahun Pengalaman</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">98<span>%</span></div>
+            <div class="stat-label">Tingkat Kepuasan</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">50<span>+</span></div>
+            <div class="stat-label">Tenaga Ahli</div>
+          </div>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-avatars">
+            <span>AR</span><span>DK</span><span>FM</span><span>+</span>
+          </div>
+          <div class="trust-text">
+            <b>500+ klien</b> telah mempercayakan<br>bisnis mereka kepada kami
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-hint-line"></div>
+    SCROLL
+  </div>
+</section>
+
+<!-- ─── CLIENTS TICKER ─── -->
+<div class="clients">
+  <div class="clients-label">Dipercaya oleh perusahaan terkemuka</div>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <div class="ticker-item">🏦 Bank Nusantara<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🏗️ Konstruksi Maju<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🛒 Retail Indo<div class="ticker-dot"></div></div>
+      <div class="ticker-item">⚡ Energi Masa Depan<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🌿 Agro Nusantara<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🏥 Medika Prima<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🚢 Logistik Global<div class="ticker-dot"></div></div>
+      <div class="ticker-item">💻 Tech Innovations<div class="ticker-dot"></div></div>
+      <!-- duplicate for infinite -->
+      <div class="ticker-item">🏦 Bank Nusantara<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🏗️ Konstruksi Maju<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🛒 Retail Indo<div class="ticker-dot"></div></div>
+      <div class="ticker-item">⚡ Energi Masa Depan<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🌿 Agro Nusantara<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🏥 Medika Prima<div class="ticker-dot"></div></div>
+      <div class="ticker-item">🚢 Logistik Global<div class="ticker-dot"></div></div>
+      <div class="ticker-item">💻 Tech Innovations<div class="ticker-dot"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal-left">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">🏢</div>
+        <div class="about-img-overlay"></div>
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-icon">🏆</div>
+        <div>
+          <div class="about-badge-num">15+</div>
+          <div class="about-badge-txt">Tahun Pengalaman</div>
+        </div>
+      </div>
+      <div class="about-exp">
+        <div class="about-exp-num">500+</div>
+        <div class="about-exp-txt">Klien</div>
+      </div>
+    </div>
+    <div class="about-content reveal-right">
+      <div class="section-tag">✦ Tentang Kami</div>
+      <h2 class="section-title">Mitra Bisnis Terpercaya<br>di Indonesia</h2>
+      <p class="about-text">
+        PT Nusantara Prima berdiri sejak 2009 dengan visi menjadi mitra bisnis terpercaya bagi perusahaan-perusahaan di seluruh Indonesia. Berawal dari tim kecil yang berdedikasi, kini kami telah berkembang menjadi perusahaan konsultan dengan lebih dari 50 tenaga ahli berpengalaman.
+      </p>
+      <p class="about-text">
+        Kami percaya bahwa setiap bisnis memiliki potensi unik yang perlu dikembangkan dengan pendekatan yang tepat dan terukur.
+      </p>
+      <div class="vm-grid">
+        <div class="vm-card">
+          <div class="vm-icon">🎯</div>
+          <div class="vm-title">Visi</div>
+          <div class="vm-text">Menjadi perusahaan konsultan bisnis nomor satu yang dipercaya di Asia Tenggara pada 2030.</div>
+        </div>
+        <div class="vm-card">
+          <div class="vm-icon">🚀</div>
+          <div class="vm-title">Misi</div>
+          <div class="vm-text">Memberikan solusi bisnis inovatif yang terukur, efektif, dan berkelanjutan untuk setiap klien kami.</div>
+        </div>
+      </div>
+      <ul class="value-list">
+        <li><div class="value-check">✓</div><span><b>Integritas</b> — Transparansi dan kejujuran dalam setiap langkah kerja sama</span></li>
+        <li><div class="value-check">✓</div><span><b>Inovasi</b> — Selalu menghadirkan solusi segar dan relevan dengan perkembangan industri</span></li>
+        <li><div class="value-check">✓</div><span><b>Kolaborasi</b> — Bekerja bersama klien sebagai satu tim yang solid dan terarah</span></li>
+        <li><div class="value-check">✓</div><span><b>Hasil Terukur</b> — Setiap strategi dirancang untuk menghasilkan dampak nyata yang bisa diukur</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── COUNTER ─── -->
+<div class="counter-section">
+  <div class="counter-inner">
+    <div class="counter-item reveal">
+      <span class="counter-num" data-target="500">0<span class="cunit">+</span></span>
+      <div class="counter-label">Klien Aktif</div>
+    </div>
+    <div class="counter-item reveal">
+      <span class="counter-num" data-target="15">0<span class="cunit">+</span></span>
+      <div class="counter-label">Tahun Pengalaman</div>
+    </div>
+    <div class="counter-item reveal">
+      <span class="counter-num" data-target="1200">0<span class="cunit">+</span></span>
+      <div class="counter-label">Proyek Selesai</div>
+    </div>
+    <div class="counter-item reveal">
+      <span class="counter-num" data-target="98">0<span class="cunit">%</span></span>
+      <div class="counter-label">Tingkat Kepuasan</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="section-header reveal">
+      <div class="section-tag">✦ Layanan Kami</div>
+      <h2 class="section-title">Apa yang Bisa Kami Bantu</h2>
+      <p class="section-desc">Kami menyediakan berbagai layanan konsultan bisnis yang dirancang khusus untuk kebutuhan dan tujuan perusahaan Anda.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">📊</div>
+        <div class="service-title">Konsultasi Strategi Bisnis</div>
+        <div class="service-desc">Analisis mendalam dan perencanaan strategis untuk memastikan pertumbuhan bisnis Anda berjalan sesuai target yang ditetapkan.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💰</div>
+        <div class="service-title">Manajemen Keuangan</div>
+        <div class="service-desc">Optimasi arus kas, perencanaan anggaran, dan analisis keuangan untuk menjaga kesehatan finansial perusahaan Anda.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔧</div>
+        <div class="service-title">Transformasi Operasional</div>
+        <div class="service-desc">Perbaikan proses bisnis, efisiensi operasional, dan implementasi sistem manajemen yang modern dan terintegrasi.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📣</div>
+        <div class="service-title">Strategi Pemasaran</div>
+        <div class="service-desc">Pengembangan brand, strategi pemasaran digital dan konvensional yang tepat sasaran untuk memperluas jangkauan bisnis Anda.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🤝</div>
+        <div class="service-title">Pengembangan SDM</div>
+        <div class="service-desc">Pelatihan, rekrutmen, dan pengembangan kompetensi tim Anda agar mampu bersaing di era bisnis yang terus berkembang.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🌐</div>
+        <div class="service-title">Ekspansi Pasar</div>
+        <div class="service-desc">Riset pasar, analisis kompetitor, dan strategi ekspansi ke pasar baru baik domestik maupun internasional.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TEAM ─── -->
+<section class="team" id="team">
+  <div class="team-inner">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-tag" style="display:inline-flex;">✦ Tim Kami</div>
+      <h2 class="section-title">Dibalik Kesuksesan Anda</h2>
+      <p class="section-desc" style="margin:0 auto;">Para profesional berpengalaman yang siap membantu bisnis Anda mencapai tujuan.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">👨‍💼</div>
+        <div class="team-name">Budi Santoso</div>
+        <div class="team-role">CEO & Founder</div>
+        <div class="team-desc">15 tahun pengalaman di bidang konsultansi strategis dan pengembangan bisnis korporat.</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">👩‍💻</div>
+        <div class="team-name">Rina Wijaya</div>
+        <div class="team-role">Chief Strategy Officer</div>
+        <div class="team-desc">Spesialis transformasi bisnis dengan rekam jejak lebih dari 200 proyek sukses.</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">👨‍🔬</div>
+        <div class="team-name">Dian Kusuma</div>
+        <div class="team-role">Head of Finance</div>
+        <div class="team-desc">Ahli manajemen keuangan perusahaan dengan sertifikasi internasional CFA dan CPA.</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">👩‍🎨</div>
+        <div class="team-name">Fani Maharani</div>
+        <div class="team-role">Marketing Director</div>
+        <div class="team-desc">Pakar branding dan strategi pemasaran digital yang telah menangani 100+ brand nasional.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BANNER ─── -->
+<div class="cta-section">
+  <div class="cta-inner reveal">
+    <h2 class="cta-title">Siap Membawa Bisnis Anda<br>ke Level Berikutnya?</h2>
+    <p class="cta-desc">Konsultasikan kebutuhan bisnis Anda sekarang — gratis, tanpa komitmen. Tim kami siap membantu Anda menemukan solusi terbaik.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6287825019502?text=Halo%20PT%20Nusantara%20Prima%2C%20saya%20ingin%20konsultasi%20bisnis" class="btn-wa" target="_blank">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat WhatsApp
+      </a>
+      <a href="mailto:info@nusantaraprima.co.id" class="btn-email">
+        ✉️ Kirim Email
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-tag reveal">✦ Hubungi Kami</div>
+      <h2 class="section-title reveal">Ada yang Bisa<br>Kami Bantu?</h2>
+      <p class="section-desc reveal" style="margin-bottom:2rem;">Jangan ragu untuk menghubungi kami. Tim kami siap merespons pertanyaan dan kebutuhan Anda.</p>
+      <div class="contact-info">
+        <div class="contact-item reveal">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-label">Alamat Kantor</div>
+            <div class="ci-value">Jl. Sudirman No. 123, Jakarta Pusat, DKI Jakarta 10220</div>
+          </div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="ci-icon">📞</div>
+          <div>
+            <div class="ci-label">Telepon / WhatsApp</div>
+            <div class="ci-value">+62 878-2501-9502</div>
+          </div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="ci-icon">✉️</div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-value">info@nusantaraprima.co.id</div>
+          </div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="ci-icon">🕐</div>
+          <div>
+            <div class="ci-label">Jam Operasional</div>
+            <div class="ci-value">Senin – Jumat: 08.00 – 17.00 WIB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <h3 style="font-size:1.1rem;font-weight:700;color:var(--gray-900);margin-bottom:1.5rem;">Kirim Pesan</h3>
+      <form id="contact-form" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nama Lengkap *</label>
+            <input type="text" class="form-input" placeholder="Nama Anda" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Perusahaan</label>
+            <input type="text" class="form-input" placeholder="Nama perusahaan">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-input" placeholder="email@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">No. HP / WA</label>
+            <input type="tel" class="form-input" placeholder="0812-xxxx-xxxx">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Layanan yang Dibutuhkan</label>
+          <select class="form-input">
+            <option value="">-- Pilih Layanan --</option>
+            <option>Konsultasi Strategi Bisnis</option>
+            <option>Manajemen Keuangan</option>
+            <option>Transformasi Operasional</option>
+            <option>Strategi Pemasaran</option>
+            <option>Pengembangan SDM</option>
+            <option>Ekspansi Pasar</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Pesan *</label>
+          <textarea class="form-textarea" placeholder="Ceritakan kebutuhan bisnis Anda..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">
+          <span id="btn-text">Kirim Pesan ✉️</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo">
+          <div class="footer-logo-icon">NP</div>
+          <div class="footer-logo-text">Nusantara Prima</div>
+        </a>
+        <p class="footer-tagline">Solusi bisnis profesional yang membantu perusahaan Anda tumbuh dan berkembang secara berkelanjutan.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" title="LinkedIn">in</a>
+          <a href="#" class="social-btn" title="Instagram">ig</a>
+          <a href="#" class="social-btn" title="Facebook">fb</a>
+          <a href="#" class="social-btn" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Layanan</div>
+        <ul class="footer-links">
+          <li><a href="#services">Strategi Bisnis</a></li>
+          <li><a href="#services">Manajemen Keuangan</a></li>
+          <li><a href="#services">Transformasi Operasional</a></li>
+          <li><a href="#services">Strategi Pemasaran</a></li>
+          <li><a href="#services">Pengembangan SDM</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Perusahaan</div>
+        <ul class="footer-links">
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#team">Tim Kami</a></li>
+          <li><a href="#contact">Karir</a></li>
+          <li><a href="#contact">Berita</a></li>
+          <li><a href="#contact">Hubungi Kami</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Kontak</div>
+        <ul class="footer-links">
+          <li><a href="tel:+6287825019502">+62 878-2501-9502</a></li>
+          <li><a href="mailto:info@nusantaraprima.co.id">info@nusantaraprima.co.id</a></li>
+          <li><a href="#">Jl. Sudirman No. 123<br>Jakarta Pusat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 PT Nusantara Prima. Hak Cipta Dilindungi.</div>
+      <div class="footer-credit">
+        Dibuat oleh <a href="https://www.craftoraweb.site" target="_blank" rel="noopener">craftoraweb.site</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#home" class="back-top" id="backTop" title="Kembali ke atas">↑</a>
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── NAV SCROLL ───
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 30);
+  document.getElementById('backTop').classList.toggle('show', window.scrollY > 400);
+});
+
+// ─── HAMBURGER ───
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+}
+
+// ─── SMOOTH SCROLL for nav links ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ─── REVEAL ANIMATIONS ───
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// ─── COUNTER ANIMATION ───
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const unit = el.querySelector('.cunit');
+  const unitText = unit ? unit.outerHTML : '';
+  let current = 0;
+  const duration = 1800;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.innerHTML = Math.floor(current) + unitText;
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+const counterEls = document.querySelectorAll('.counter-num[data-target]');
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+counterEls.forEach(el => counterObs.observe(el));
+
+// ─── FORM SUBMIT ───
+function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const txt = document.getElementById('btn-text');
+  btn.disabled = true;
+  txt.textContent = 'Mengirim...';
+  setTimeout(() => {
+    btn.classList.add('sent');
+    txt.textContent = '✓ Pesan Terkirim!';
+    showToast('✓ Pesan berhasil dikirim! Tim kami akan segera menghubungi Anda.');
+    document.getElementById('contact-form').reset();
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.classList.remove('sent');
+      txt.textContent = 'Kirim Pesan ✉️';
+    }, 4000);
+  }, 1500);
+}
+
+// ─── TOAST ───
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+</script>
+</body>
+</html>
